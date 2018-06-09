@@ -4,7 +4,7 @@ $('#getWeatherBtn').click(() => {
     const cityName = $('#cityInput').val();
     $.ajax({
         type: 'GET',
-        url: `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=27d43832d2a4adcb97fcbfa23db130aa`,
+        url:`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=27d43832d2a4adcb97fcbfa23db130aa`,
         success: (data) => {
             console.log('In success callback');
             console.log(data);
@@ -13,8 +13,15 @@ $('#getWeatherBtn').click(() => {
             const humidity = data.main.humidity;
             const description = data.weather["0"].description;
             const wind = data.wind.speed;
-            const day = moment((data.dt)*1000).format('dddd');
-            listOfDates = data.list.map((ele) => moment(ele.dt * 1000).format('dddd'));
+            //var x = parseInt(data.dt);
+            //x = x+64800;
+            //console.log(x)
+            //const day = moment((data.dt*1000)+320).format('dddd');
+            const day = moment((data.dt*1000)).format('dddd');
+            //console.log(day);
+            //console.log(parseInt((data.dt*1000))+320);
+            //listOfDates = data.list.map((ele) => moment(ele.dt * 1000).format('dddd'));
+            //console.log(listOfDates);
             //listOfTemp = data.list.map(ele => Math.round(ele.main.temp - 270));
             const icon = data.weather["0"].icon;
             var iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
@@ -33,49 +40,6 @@ $('#getWeatherBtn').click(() => {
             console.log(err);
         }
     });
-    /*const plotChart = (tempArr, datesArr) => {
-        //$('#chart-container').show();
-        Highcharts.chart('chart-container', {
-            chart: {
-                type: 'spline'
-            },
-            title: {
-                text: 'Monthly Average Temperature'
-            },
-            xAxis: {
-                categories: datesArr
-            },
-            yAxis: {
-                title: {
-                    text: 'Temperature'
-                },
-                labels: {
-                    formatter: function () { return this.value + '°'; }
-                }
-            },
-            tooltip: {
-                crosshairs: true,
-                shared: true
-            },
-            plotOptions: {
-                spline: {
-                    marker: {
-                        radius: 4,
-                        lineColor: '#666666',
-                        lineWidth: 1
-                    }
-                }
-            },
-            series: [{
-                name: cityName,
-                marker: {
-                    symbol: 'square'
-                },
-                data: tempArr
-
-            }]
-        });
-    }*/
     var d = new Date();
     var weekday = new Array(7);
     weekday[0] = "Sunday";
@@ -92,4 +56,20 @@ $('#getWeatherBtn').click(() => {
         var res = weekday[i];
         document.getElementById(j).innerHTML=res;
     }
+    
+})
+$('#getWeatherBtn').click(() => {
+    const cityName = $('#cityInput').val();
+    $.ajax ({
+        type: 'GET',
+        url:`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=27d43832d2a4adcb97fcbfa23db130aa`, 
+        success :(data) => {
+            console.log('In success callback');
+            console.log(data);
+        },
+        error: (err) => {
+            console.log('In error callback');
+            console.log(err);
+        }
+    })
 })
