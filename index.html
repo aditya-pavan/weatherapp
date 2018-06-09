@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">@</span>
+            <input type="text" class="form-control" placeholder="Enter city name" aria-describedby="basic-addon1" id="cityInput">
+        </div><br>
+        <p id="getDay">NA</p>
+        <p id="getDescription">NA</p>
+        <div class="displayImageandTemp">
+            <div id="icon"><img src="" alt="image" height=80px width=80px id="wicon"></div>
+            <div class="displayTemp">
+                <h1 id="getTemperature">NA</h1>
+                <a href="#">°C</a>|<a href="#">°F</a>
+            </div>
+            <div class="displayInfo">
+                <div class="info1"><p>Pressure: </p><p id="getPressure">NA</p>atm</div>
+                <div class="info1"><p>Humidity: </p><p id="getHumidity">NA</p>%</div>
+                <div class="info1"><p>Wind: </p><p id="getWind">NA</p>mph</div>
+            </div>
+            <div class="btn-group displaybtn" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary" id="getWeatherBtn">Temperature</button>
+                <button type="button" class="btn btn-secondary">Pressure</button>
+                <button type="button" class="btn btn-secondary">Wind</button>
+            </div>
+        </div>
+        <div id="chart-container"></div>
+        <div class="button-container">
+            <div class="btn-group displaybtn" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary" id="0">Temperature</button>
+                <button type="button" class="btn btn-secondary" id="1">Pressure</button>
+                <button type="button" class="btn btn-secondary" id="2">Wind</button>
+                <button type="button" class="btn btn-secondary" id="3">Temperature</button>
+                <button type="button" class="btn btn-secondary" id="4">Pressure</button>
+                <button type="button" class="btn btn-secondary" id="5">Wind</button>
+                <button type="button" class="btn btn-secondary" id="6">Wind</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="js/app.js"></script> 
+</body>
+</html>
